@@ -1,0 +1,48 @@
+@model JuguetesModel;
+
+@{
+    ViewData["Title"] = "Agregar Juguete";
+}
+
+<form asp-action="JuguetesAdd" asp-controller="Juguetes">
+
+    <div class="form-floating mb-3">
+        
+        <input asp-for="idJuguetes" class="form-control" readonly aria-label="@Model.idJuguetes" />
+        <label class="control-label">Id</label>
+    </div>
+
+    <div class="form-floating mb-3">
+        <input type="text" class="form-control" asp-for="Codigo" placeholder="Codigo">
+        <label asp-for="Codigo"> Codigo </label>
+    </div>
+
+    
+
+    <div class="form-floating mb-3">
+        <input type="text" class="form-control" asp-for="nombreJuguetes" placeholder="Nombre">
+        <label asp-for="nombreJuguetes"> Nombre </label>
+    </div>
+
+    <div class="form-floating mb-3">
+        <input type="text" class="form-control" asp-for="Precio" placeholder="Precio">
+        <label asp-for="Precio"> Precio </label>
+    </div>
+
+    <div class="form-floating mb-3">
+        <input type="text" class="form-control" asp-for="Vigencia" placeholder="Vigencia">
+        <label asp-for="Vigencia"> Vigencia </label>
+    </div>
+
+    <button type="submit" class="btn btn-outline-primary">Guardar</button>
+
+    <a class="btn btn-outline-secundary" asp-action="JuguetesList" asp-controller="Juguetes">
+        Regresar
+    </a>
+</form>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
